@@ -82,39 +82,39 @@ void shellSort(vector<int>& vec) {
 
 	// Start with the midpoint, then reduce the gap 
 	for (int gap = n / 2; gap > 1; gap /= 2) {
-	    cout << "*** gap is " << gap << " ***" << endl;
-	    for (size_t i = gap; i < n; i++) {
+		cout << "*** gap is " << gap << " ***" << endl;
+		for (size_t i = gap; i < n; i++) {
 			cout << "*** Iteration " << l << " ***" << endl;
-	        int temp = vec[i];
+			int temp = vec[i];
 
-	        // shift earlier gap-sorted elements up until 
-	        // the correct location for temp is found 
-	        int j;
-	        for (j = i; j >= gap && vec[j - gap] > temp; j -= gap) {
-	            cout << "swapping " << vec[j] << " and " << vec[j - gap] << endl;
-	            vec[j] = vec[j - gap];
-	        }
-	        // put in correct location
-	        vec[j] = temp;
-	        
+			// shift earlier gap-sorted elements up until 
+			// the correct location for temp is found 
+			int j;
+			for (j = i; j >= gap && vec[j - gap] > temp; j -= gap) {
+				cout << "swapping " << vec[j] << " and " << vec[j - gap] << endl;
+				vec[j] = vec[j - gap];
+			}
+			// put in correct location
+			vec[j] = temp;
+
 
 			//print vector
-	        for (size_t k = 0; k < vec.size(); k++) {
-	            cout << vec[k] << " ";
-	            if (k == i - gap - gap) {
-	                cout << "\u001B[32m\b.\u001B[0m";
-	            }
-	            if (k == i - gap) {
-	                cout << "\u001B[32m\b.\u001B[0m";
-	            }
-	            if (k == i) {
-	                cout << "\u001B[32m\b.\u001B[0m";
-	            }
-	            cout << " ";
-	        }
-	        cout << "\n";
-	        l++;
-	    }
+			for (size_t k = 0; k < vec.size(); k++) {
+				cout << vec[k] << " ";
+				if (k == i - gap - gap) {
+					cout << "\u001B[32m\b.\u001B[0m";
+				}
+				if (k == i - gap) {
+					cout << "\u001B[32m\b.\u001B[0m";
+				}
+				if (k == i) {
+					cout << "\u001B[32m\b.\u001B[0m";
+				}
+				cout << " ";
+			}
+			cout << "\n";
+			l++;
+		}
 	}
 	cout << "---\nInsertion Portion" << endl;
 	insertionSort(vec);
@@ -166,4 +166,5 @@ int main()
 	shellSort(copy2);
 	cout << "Sorted vector:" << endl;
 	printVector(copy2);
+	return 0;
 }
