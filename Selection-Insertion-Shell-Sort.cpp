@@ -8,10 +8,10 @@ void selectionSort(vector<int>& vec) {
     size_t n = vec.size();
 
     // One by one move boundary of unsorted subvec
-    for (int i = 0; i < n - 1; i++) {
+    for (size_t i = 0; i < n - 1; i++) {
         // Find the minimum element in unsorted vec
         int min = i;
-        for (int j = i + 1; j < n; j++) {
+        for (size_t j = i + 1; j < n; j++) {
             if (vec[j] < vec[min]) {
                 min = j;
             }
@@ -24,7 +24,7 @@ void selectionSort(vector<int>& vec) {
         vec[i] = temp;
 
         cout << "Step " << (i + 1) << endl;
-        for (int k = 0; k < vec.size(); k++) {
+        for (size_t k = 0; k < vec.size(); k++) {
             cout << vec[k];
             cout << " ";
             if (k == i) {
@@ -38,7 +38,7 @@ void selectionSort(vector<int>& vec) {
 void insertionSort(vector<int>& vec) {
     cout << "[Numbers in brackets] are sorted" << endl;
     size_t n = vec.size();
-    for (int i = 1; i < n; i++) {
+    for (size_t i = 1; i < n; i++) {
         int key = vec[i];
         int j = i - 1;
 
@@ -54,7 +54,7 @@ void insertionSort(vector<int>& vec) {
         //print steps
         cout << "Step " << (i) << endl;
         cout << "[";
-        for (int k = 0; k < vec.size(); k++) {
+        for (size_t k = 0; k < vec.size(); k++) {
             cout << vec[k];
             if (k == i) {
                 cout << "]";
@@ -77,7 +77,7 @@ void shellSort(vector<int>& vec) {
         // The first gap elements a[0..gap-1] are already 
         // in gapped order keep adding one more element 
         // until the entire vec is gap sorted 
-        for (int i = gap; i < n; i++) {
+        for (size_t i = gap; i < n; i++) {
             // store value 
             int temp = vec[i];
 
@@ -92,7 +92,7 @@ void shellSort(vector<int>& vec) {
             vec[j] = temp;
 
             cout << "Step " << l << endl;
-            for (int k = 0; k < vec.size(); k++) {
+            for (size_t k = 0; k < vec.size(); k++) {
                 cout << vec[k];
                 if (k == j) {
                     cout << ".";
@@ -121,10 +121,15 @@ void printvec(vector<int>& vec) {
 
 int main()
 {
+    cout << "* **********************************************" << endl
+        << "*** San Francisco State University" << endl
+        << "*** CSC 340 - Programming Methodology" << endl
+        << "*** Sorting Demonstration" << endl
+        << "* **********************************************" << endl;
     vector<int> data = { 1, 8, 4, 0, 1, 1, 7, 6, 4, 6, 1, 7 };
     vector<int> copy1 = data;
     vector<int> copy2 = data;
-    cout << "Selection Sort\n---" << endl;
+    cout << "---\nSelection Sort\n---" << endl;
     cout << "Unsorted vector:" << endl;
     printvec(data);
     selectionSort(data);
