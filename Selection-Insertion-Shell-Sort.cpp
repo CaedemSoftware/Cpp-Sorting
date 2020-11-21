@@ -35,8 +35,11 @@ void selectionSort(vector<int>& vec) {
 		for (size_t k = 0; k < vec.size(); k++) {
 			cout << vec[k];
 			cout << " ";
+			if (k == i - 1) {
+				cout << "\u001B[32m";
+			}
 			if (k == i) {
-				cout << "[";
+				cout << "\u001B[0m[";
 			}
 		}
 		cout << "\b \b]" << endl;
@@ -65,6 +68,9 @@ void insertionSort(vector<int>& vec) {
 		//print vector
 		for (size_t k = 0; k < vec.size(); k++) {
 			cout << vec[k];
+			if (k == j + 1) {
+				cout << "\u001B[32m\b" << vec[k] << "\u001B[0m";
+			}
 			if (k == i) {
 				cout << "]";
 			}
